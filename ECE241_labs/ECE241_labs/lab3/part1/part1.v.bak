@@ -1,0 +1,26 @@
+`timescale 1ns / 1ns // `timescale time_unit/time_precision
+
+//SW[2:0] data inputs
+//SW[9] select signals
+
+//LEDR[0] output display
+
+
+
+module FA(a, b, c_in, s,  c_out);
+input a,b,c_in;
+output s,c_out;
+assign s = a^b^c_in;
+assign c_out = (a&b)|(a&c_in)|(b&c_in);
+endmodule
+
+module part1(a, b, c_in, s,  c_out);
+input [3:0] a,b,c_in;
+output [3:0] s;
+output [3:0] c_out;
+
+FA U0 (a[0],b[0],c_in,s[0],c_out[0]);
+FA U1 (a[1],b[1],c_out[0],s[1],c_out[1]);
+FA U2 (a[2],b[2],c_out[0],s[2],c_out[2]);
+FA U3 (a[3],b[3],c_out[0],s[3],c_out[3]);
+endmodule

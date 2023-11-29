@@ -1,0 +1,101 @@
+|mux
+LEDR[0] <= part2:yy.CounterValue
+LEDR[1] <= part2:yy.CounterValue
+LEDR[2] <= part2:yy.CounterValue
+LEDR[3] <= part2:yy.CounterValue
+LEDR[4] <= <GND>
+LEDR[5] <= <GND>
+LEDR[6] <= <GND>
+LEDR[7] <= <GND>
+LEDR[8] <= <GND>
+LEDR[9] <= <GND>
+KEY[0] => KEY[0].IN1
+KEY[1] => KEY[1].IN1
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => ~NO_FANOUT~
+SW[3] => ~NO_FANOUT~
+SW[4] => ~NO_FANOUT~
+SW[5] => ~NO_FANOUT~
+SW[6] => ~NO_FANOUT~
+SW[7] => ~NO_FANOUT~
+SW[8] => ~NO_FANOUT~
+SW[9] => ~NO_FANOUT~
+
+
+|mux|part2:yy
+ClockIn => ClockIn.IN3
+Reset => Reset.IN3
+Speed[0] => Speed[0].IN1
+Speed[1] => Speed[1].IN1
+CounterValue[0] <= DisplayCounter:b1.port3
+CounterValue[1] <= DisplayCounter:b1.port3
+CounterValue[2] <= DisplayCounter:b1.port3
+CounterValue[3] <= DisplayCounter:b1.port3
+
+
+|mux|part2:yy|RateDivider0:a2
+ClockIn => Enable$latch.DATAIN
+Reset => always0.IN1
+Enable <= Enable$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mux|part2:yy|RateDivider1:a3
+ClockIn => downCount1[0].CLK
+ClockIn => downCount1[1].CLK
+ClockIn => downCount1[2].CLK
+ClockIn => downCount1[3].CLK
+ClockIn => downCount1[4].CLK
+ClockIn => downCount1[5].CLK
+ClockIn => downCount1[6].CLK
+ClockIn => downCount1[7].CLK
+ClockIn => downCount1[8].CLK
+ClockIn => downCount1[9].CLK
+ClockIn => downCount1[10].CLK
+ClockIn => downCount1[11].CLK
+ClockIn => downCount1[12].CLK
+ClockIn => downCount1[13].CLK
+ClockIn => downCount1[14].CLK
+ClockIn => downCount1[15].CLK
+ClockIn => downCount1[16].CLK
+ClockIn => downCount1[17].CLK
+ClockIn => downCount1[18].CLK
+ClockIn => downCount1[19].CLK
+ClockIn => downCount1[20].CLK
+ClockIn => downCount1[21].CLK
+ClockIn => downCount1[22].CLK
+ClockIn => downCount1[23].CLK
+ClockIn => downCount1[24].CLK
+ClockIn => downCount1[25].CLK
+ClockIn => downCount1[26].CLK
+Reset => always0.IN1
+Speed[0] => Equal0.IN1
+Speed[0] => Equal1.IN0
+Speed[0] => Equal2.IN1
+Speed[0] => Equal3.IN1
+Speed[1] => Equal0.IN0
+Speed[1] => Equal1.IN1
+Speed[1] => Equal2.IN0
+Speed[1] => Equal3.IN0
+Enable <= Equal4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|mux|part2:yy|DisplayCounter:b1
+Clock => CounterValue[0]~reg0.CLK
+Clock => CounterValue[1]~reg0.CLK
+Clock => CounterValue[2]~reg0.CLK
+Clock => CounterValue[3]~reg0.CLK
+Reset => CounterValue.OUTPUTSELECT
+Reset => CounterValue.OUTPUTSELECT
+Reset => CounterValue.OUTPUTSELECT
+Reset => CounterValue.OUTPUTSELECT
+EnableDC => CounterValue.OUTPUTSELECT
+EnableDC => CounterValue.OUTPUTSELECT
+EnableDC => CounterValue.OUTPUTSELECT
+EnableDC => CounterValue.OUTPUTSELECT
+CounterValue[0] <= CounterValue[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+CounterValue[1] <= CounterValue[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+CounterValue[2] <= CounterValue[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+CounterValue[3] <= CounterValue[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

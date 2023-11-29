@@ -1,0 +1,70 @@
+|part1
+Clock => Clock.IN8
+Enable => Enable.IN1
+Reset => Reset.IN8
+CounterValue[0] <= TFlipFlop:a0.port3
+CounterValue[1] <= TFlipFlop:a1.port3
+CounterValue[2] <= TFlipFlop:a2.port3
+CounterValue[3] <= TFlipFlop:a3.port3
+CounterValue[4] <= TFlipFlop:a4.port3
+CounterValue[5] <= TFlipFlop:a5.port3
+CounterValue[6] <= TFlipFlop:a6.port3
+CounterValue[7] <= TFlipFlop:a7.port3
+
+
+|part1|TFlipFlop:a0
+data_in => Q.IN1
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|part1|TFlipFlop:a1
+data_in => Q.IN1
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|part1|TFlipFlop:a2
+data_in => Q.IN1
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|part1|TFlipFlop:a3
+data_in => Q.IN1
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|part1|TFlipFlop:a4
+data_in => Q.IN1
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|part1|TFlipFlop:a5
+data_in => Q.IN1
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|part1|TFlipFlop:a6
+data_in => Q.IN1
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|part1|TFlipFlop:a7
+data_in => Q.IN1
+clk => Q~reg0.CLK
+reset => Q.OUTPUTSELECT
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
