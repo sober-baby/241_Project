@@ -120,9 +120,7 @@ end
 
 always @(posedge CLOCK_50)
 begin: state_FFS
-	if(KEY[0] == !1'b0)
-		current_state <= SELECT_SPEED;
-	else
+	if(ps2_key_pressed)
 		current_state <= next_state;
 end
 

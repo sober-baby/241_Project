@@ -73,11 +73,11 @@ reg			[7:0]	last_data_received;
 
 always @(posedge CLOCK_50)
 begin
-	if (KEY[0] == 1'b0)
-		last_data_received <= 8'h00;
-	else if (ps2_key_pressed == 1'b1)
+	if (ps2_key_pressed)
 		last_data_received <= ps2_key_data;
+	
 end
+
 
 /*****************************************************************************
  *                            Combinational Logic                            *
